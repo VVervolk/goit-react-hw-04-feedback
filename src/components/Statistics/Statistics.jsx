@@ -14,8 +14,7 @@ export class Statistics extends Component {
   render() {
     const { good, neutral, bad, total, positivePercentage } = this.props;
     return (
-      <section>
-        <h2>Statistics</h2>
+      <>
         {total > 0 ? (
           <ul>
             <li>
@@ -37,7 +36,7 @@ export class Statistics extends Component {
         ) : (
           <Notification message="There is no feedback"></Notification>
         )}
-      </section>
+      </>
     );
   }
 }

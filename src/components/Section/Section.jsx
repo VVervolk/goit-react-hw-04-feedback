@@ -11,7 +11,7 @@ export class Section extends Component {
     const { title, children } = this.props;
     return (
       <Sec>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         {children}
       </Sec>
     );
