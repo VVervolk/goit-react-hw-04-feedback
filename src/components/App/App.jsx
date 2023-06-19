@@ -1,21 +1,16 @@
 import { useState } from 'react';
-import { Statistics } from 'components/Statistics/Statistics';
-import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
-import { Section } from 'components/Section/Section';
+import Statistics from 'components/Statistics';
+import FeedbackOptions from 'components/FeedbackOptions';
+import Section from 'components/Section';
 
 export default function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  function countTotalFeedback() {
-    return good + neutral + bad;
-  }
+  const total = good + neutral + bad;
 
-  function countPositiveFeedbackPercentage() {
-    const positive = (good * 100) / countTotalFeedback();
-    return Math.round(positive);
-  }
+  const positive = Math.round((good * 100) / total);
 
   function onLeaveFeedback(option) {
     switch (option) {
@@ -47,8 +42,8 @@ export default function App() {
           good={good}
           neutral={neutral}
           bad={bad}
-          total={countTotalFeedback()}
-          positivePercentage={countPositiveFeedbackPercentage()}
+          total={total}
+          positivePercentage={positive}
         />
       </Section>
     </>
